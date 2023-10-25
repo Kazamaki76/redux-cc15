@@ -1,4 +1,4 @@
-import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from "./actionType";
+import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE, FETCH_NOTE } from "./actionType";
 
 // action Creator
 
@@ -15,3 +15,8 @@ export const deleteNoteAction = (noteId) => {
     payload: noteId,
   };
 };
+export const fetchNoteAction = () => {
+  return {
+    type: FETCH_NOTE,             
+  }
+}

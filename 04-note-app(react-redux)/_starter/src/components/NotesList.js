@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'; // store.subscribe()
-import { deleteNoteAction } from '../redux/actions/actionCreator';
+import { deleteNoteAction, fetchNoteAction } from '../redux/actions/actionCreator';
 
 import './NotesList.css';
 
@@ -8,6 +8,10 @@ const NotesList = () => {
   const dispatch = useDispatch();
   const notes = useSelector((state) => state.notes);
 
+
+  useEffect (() => {
+    dispatch(fetchNoteAction())
+  }, [])
   const handleDelete = (id) => {
     // dispatch(deleteNoteAction(id))
     dispatch(deleteNoteAction(id));
