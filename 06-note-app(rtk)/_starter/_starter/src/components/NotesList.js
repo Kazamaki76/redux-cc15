@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react';
 
 import './NotesList.css';
+import { useSelector } from 'react-redux';
+
 
 const NotesList = () => {
+  const data = useSelector((stores) => stores.note)   //ขื่อที่ store รุ็ตัะก 
+  console.log("data", data)
+
   const handleDelete = (id) => {};
 
   return (
@@ -10,7 +15,7 @@ const NotesList = () => {
       <h1>Notes List</h1>
 
       <div className='item-container'>
-        {[].map((note) => (
+        {data.notes.map((note) => (
           <div className='item-content' key={note.id}>
             <h2>{note.title}</h2>
             <p>{note.content}</p>
